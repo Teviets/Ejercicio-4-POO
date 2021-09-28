@@ -12,7 +12,7 @@ class ItemoHabilidad{
     private String hace;// Guarda una palabra que hace referencia a lo que hace
     private int rondas;// Guarda la cantidad de rondas que tarda este objetos 
     private int intentos; // Guarda la cantidad de beses que se puede utilizar este item
-    private int damage;// Guarda la cantidad de daño o regeneracion que puede hacer
+    private double damage;// Guarda la cantidad de daño o regeneracion que puede hacer
     
     /**
      * Este es el metodo constructor establece todo las propiedades de un item o habilidad
@@ -34,7 +34,7 @@ class ItemoHabilidad{
      * @param probabilidad
      */
     public void setProbabilidadDamage(Double probabilidad){
-        damage = Integer.parseInt(Math.round(damage *probabilidad)); 
+        damage = Math.round(damage *probabilidad); 
     }
     /**
      * Este metodo establece la cantidad de rondas restantes que esta activo el item o habilidad
@@ -75,7 +75,7 @@ class ItemoHabilidad{
      * Este metodo retorna el daño que hace el item o habilidad
      * @return retorna un int
      */
-    public int getDamage(){
+    public double getDamage(){
         return damage;
     }
     /**

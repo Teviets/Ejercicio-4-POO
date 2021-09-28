@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 class Jugador{
     private String nombre;// Guarda el nombre que le dio el usuario a su jugador
-    private int damageBas; // Guarda los puntos de daño de sus basicos
-    private int vida;// Guarda los puntos de vida restante o total
+    private double damageBas; // Guarda los puntos de daño de sus basicos
+    private double vida;// Guarda los puntos de vida restante o total
     private ArrayList<ItemoHabilidad> itemsOHabls= new ArrayList<ItemoHabilidad>();// Este es el inventario del jugador
     
     /**
@@ -52,7 +52,7 @@ class Jugador{
      * @param vid
      */
     public void setVidas(int vid){
-        vida = Integer.parseInt(Math.round(vid));
+        vida = Math.round(vid);
     }
     /**
      * Este metodo setea el daño basico del jugador
@@ -82,14 +82,14 @@ class Jugador{
      * Este es un metodo es un getter del daño basico
      * @return retorna un int
      */
-    public int getDamageBas(){
+    public double getDamageBas(){
         return damageBas;
     }
     /**
      * Este es un getter de las vidas
      * @return retorna un int
      */
-    public int getVidas(){
+    public double getVidas(){
         return vida;
     }
     /**

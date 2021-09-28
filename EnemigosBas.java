@@ -9,9 +9,10 @@ import java.util.ArrayList;
 class EnemigosBas{
     protected String tipo; // Guarda el tipo de enemigo que es
     protected String tipoDeDamage; // Guarda el tipo de daño que hace
-    protected int vida; // Guarda la vida actual que tiene el enemigo
-    protected int damage; // Guarda el daño que hace
+    protected double vida; // Guarda la vida actual que tiene el enemigo
+    protected double damage; // Guarda el daño que hace
     protected ArrayList<ItemoHabilidad> itemsOhabsDrop = new ArrayList<ItemoHabilidad>(); // Guarda los items que dropean
+    protected ItemoHabilidad virus;
 
     /**
      * El metodo constructor solo settea el tipo de enemigo que es
@@ -59,31 +60,51 @@ class EnemigosBas{
         System.out.println("\n NOOOOOOOO nos has vencidon\n");
     }
     /**
+     * Este metodo establece que el robot tiene un virus
+     * @param viru
+     */
+    public void setVirus(ItemoHabilidad viru){
+        virus = viru; 
+    }
+    /**
+     * Este metodo aplica el daño del virus que tenga
+     */
+    public void aplicarDamageVirus(){
+        if(virus != null){
+            if (virus.getRondas()>0){
+                vida = vida - virus.getDamage();
+                System.err.println(tipo + " tiene virus");
+            }else if (virus.getRondas() == 0){
+                virus = null;
+            }
+        }
+    }
+    /**
      * Este metodo seta la vida del enemigo
      * @param vid
      */
-    public void setVida(int vid){
-        vida = Integer.parseInt(Math.round(vid));
+    public void setVida(double vid){
+        vida = Math.round(vid);
     }
     /**
      * Este metodo seta el daño del enemigo
      * @param damag
      */
-    public void setDamage(int damag){
+    public void setDamage(Double damag){
         damage = damag;
     }
     /**
      * Este metodo es un getter de la vida del enemigo
      * @return retorna un int 
      */
-    public int getVida(){
+    public double getVida(){
         return vida;
     }
     /**
      * Este metodo es un getter del daño del enemigo
      * @return retorna un int
      */
-    public int getDamage(){
+    public double getDamage(){
         return damage;
     }
     /**
