@@ -40,61 +40,70 @@ class CampoDeBatalla{
         }
     }
     public void opcion2User(int paInven){
-        if(user.getItems().get(paInven).getNombre().equals("Granada") == true){
-            // Granada
-            for (int i=0; i<enemigos.size();i++){
-                double vid = enemigos.get(i).getVida();
-                enemigos.get(i).setVida(vid - user.getItems().get(paInven).getDamage());
-            }
-            user.getItems().get(paInven).setIntentos(user.getItems().get(paInven).getIntentos() - 1);
-            System.out.println("A todos los robots les has hecho un daño de " + user.getItems().get(paInven).getDamage());
-        }else if (user.getItems().get(paInven).getNombre().equals("Manual") == true){
-            // manual
-            double vida = user.getItems().get(paInven).getDamage();
-            user.setVidas(user.getVidas()+vida);
-        }else if (user.getItems().get(paInven).getNombre().equals("Virus") == true){
-            // Virus
-            int x = rand.nextInt(enemigos.size());
-            if (x == 0){
-                enemigos.get(0).setVirus(user.getItems().get(paInven));
-            }else if(x == 1){
-                enemigos.get(1).setVirus(user.getItems().get(paInven));
-            }else if (x == 2){
-                enemigos.get(2).setVirus(user.getItems().get(paInven));
-            }
-            user.getItems().get(paInven).setIntentos(user.getItems().get(paInven).getIntentos() - 1);
-            System.out.println("Le has aplicado un virus al " + x + " Robot");
-        }else if(user.getItems().get(paInven).getNombre().equals("Hack") == true){
-            // Hack
-            int x = rand.nextInt(enemigos.size());
-            if (x == 0){
-                enemigos.get(0).setDamage(enemigos.get(0).getDamage()-(user.getItems().get(paInven).getDamage()));
-            }else if(x == 1){
-                enemigos.get(1).setDamage(enemigos.get(1).getDamage()-(user.getItems().get(paInven).getDamage()));
-            }else if (x == 2){
-                enemigos.get(1).setDamage(enemigos.get(1).getDamage()-(user.getItems().get(paInven).getDamage()));
-            }
+        if (user.getItems().get(paInven).getIntentos() == 0){
+            System.out.println("\nEste item o habilidad se te acabo\n");
+        }else{
+            if(user.getItems().get(paInven).getNombre().equals("Granada") == true){
+                // Granada
+                for (int i=0; i<enemigos.size();i++){
+                    double vid = enemigos.get(i).getVida();
+                    enemigos.get(i).setVida(vid - user.getItems().get(paInven).getDamage());
+                }
+                user.getItems().get(paInven).setIntentos(user.getItems().get(paInven).getIntentos() - 1);
+                System.out.println("A todos los robots les has hecho un daño de " + user.getItems().get(paInven).getDamage());
+            }else if (user.getItems().get(paInven).getNombre().equals("Manual") == true){
+                // manual
+                double vida = user.getItems().get(paInven).getDamage();
+                user.setVidas(user.getVidas()+vida);
+            }else if (user.getItems().get(paInven).getNombre().equals("Virus") == true){
+                // Virus
+                int x = rand.nextInt(enemigos.size());
+                if (x == 0){
+                    enemigos.get(0).setVirus(user.getItems().get(paInven));
+                }else if(x == 1){
+                    enemigos.get(1).setVirus(user.getItems().get(paInven));
+                }else if (x == 2){
+                    enemigos.get(2).setVirus(user.getItems().get(paInven));
+                }
+                user.getItems().get(paInven).setIntentos(user.getItems().get(paInven).getIntentos() - 1);
+                System.out.println("Le has aplicado un virus al " + x + " Robot");
+            }else if(user.getItems().get(paInven).getNombre().equals("Hack") == true){
+                // Hack
+                int x = rand.nextInt(enemigos.size());
+                if (x == 0){
+                    enemigos.get(0).setDamage(enemigos.get(0).getDamage()-(user.getItems().get(paInven).getDamage()));
+                }else if(x == 1){
+                    enemigos.get(1).setDamage(enemigos.get(1).getDamage()-(user.getItems().get(paInven).getDamage()));
+                }else if (x == 2){
+                    enemigos.get(1).setDamage(enemigos.get(1).getDamage()-(user.getItems().get(paInven).getDamage()));
+                }
 
-        }else if(user.getItems().get(paInven).getNombre().equals("Misiles") == true){
-            // Misiles
-            for (int i = 0; i<enemigos.size(); i++){
-                enemigos.get(i).setVida(enemigos.get(i).getVida() - user.getItems().get(paInven).getDamage());
+            }else if(user.getItems().get(paInven).getNombre().equals("Misiles") == true){
+                // Misiles
+                for (int i = 0; i<enemigos.size(); i++){
+                    enemigos.get(i).setVida(enemigos.get(i).getVida() - user.getItems().get(paInven).getDamage());
+                }
             }
         }
+        
     }
     public void turnoRobot(){
         
         for (int i = 0; i<enemigos.size(); i++){
-            user.setVidas((Math.random()*1)*enemigos.get(i).getDamage());
+            user.setVidas(user.getVidas() -((rand.nextInt(100))/100)*enemigos.get(i).getDamage());
             System.out.println("El Robot"+i+" te ha dañado");
         }
         
     }
-    
-    public void reinicioEnemigos(){
-        for (int i = 0; i<enemigos.size();i++){
-            enemigos.remove(i);
+    public void actualizarEnemigos(){
+        for (int i = 0; i<enemigos.size()){
+            if(enemigos.get(i).getVida()<=0){
+                enemigos.remove(i);
+                System.out.println("Has eliminado al enemigo " + i);
+            }
         }
-    }
+    } 
+    
+    
     
 }
