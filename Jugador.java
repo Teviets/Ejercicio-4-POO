@@ -29,6 +29,9 @@ class Jugador{
     public void gana(){
         System.out.println("\nEl mundo esta salvado\n");
     }
+    /**
+     * Este metodo imprime el mensaje al morir el usuario
+     */
     public void pierde(){
         System.out.println("\nGAME OVER...\n");
     }

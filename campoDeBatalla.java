@@ -1,11 +1,18 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Esta clase organiza y organiza todas las acciones que el usuario y los enemigos pueden hacer
+ * 
+ * @author Sebastian Estrada
+ * @since 28/09/2021
+ * @version 1.0
+ */
 class CampoDeBatalla{
-    private Jugador user;
-    private ArrayList<EnemigosBas> enemigos = new ArrayList<EnemigosBas>();
-    private FinalBoss boss = new FinalBoss();;
-    private Random rand = new Random();
+    private Jugador user; // Guarda el usuario que va a jugar 
+    private ArrayList<EnemigosBas> enemigos = new ArrayList<EnemigosBas>(); // Este ArrayList de los enemigos que hay 
+    private FinalBoss boss = new FinalBoss();// Este es el final Boss 
+    private Random rand = new Random(); // Es el generador aleatorio
 
     /**
      * Este metodo es el constructor y crea al usuario
@@ -49,6 +56,9 @@ class CampoDeBatalla{
         }
         System.out.println("\nTu vida es "+ user.getVidas() + "\n");
     }
+    /**
+     * Este metodo muestra la vida restante del boss y del usurio
+     */
     public void mostrarVidaConBoss(){
         System.out.println("\nLa vida del Jefe es "+ boss.getVida()+"\n");
         System.out.println("\nTu vida es de " + user.getVidas());

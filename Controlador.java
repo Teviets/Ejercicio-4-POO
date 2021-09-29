@@ -1,3 +1,9 @@
+/**
+ * Esta clase es el main ejecuta todo el combate entre los personajes
+ * @author Sebastian Estrada
+ * @since 28/09/2021
+ * @version 1.0
+ */
 class Controlador{
     public static void main(String[] args) {
         Vista vista = new Vista();

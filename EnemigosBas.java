@@ -12,7 +12,7 @@ class EnemigosBas{
     protected double vida; // Guarda la vida actual que tiene el enemigo
     protected double damage; // Guarda el daño que hace
     protected ArrayList<ItemoHabilidad> itemsOhabsDrop = new ArrayList<ItemoHabilidad>(); // Guarda los items que dropean
-    protected ItemoHabilidad virus;
+    protected ItemoHabilidad virus; // Esta variable declara si se tiene un virus
 
     /**
      * El metodo constructor solo settea el tipo de enemigo que es
@@ -114,6 +114,11 @@ class EnemigosBas{
     public String getTipo(){
         return tipo;
     }
+    /**
+     * Este metodo retorna un item especifico
+     * @param i
+     * @return retorna un ItemoHabilidad
+     */
     public ItemoHabilidad getItemoHabilidad(int i){
         return itemsOhabsDrop.get(i);
     }
