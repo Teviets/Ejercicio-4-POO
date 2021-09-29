@@ -114,4 +114,7 @@ class EnemigosBas{
     public String getTipo(){
         return tipo;
     }
+    public ItemoHabilidad getItemoHabilidad(int i){
+        return itemsOhabsDrop.get(i);
+    }
 }

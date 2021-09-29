@@ -24,41 +24,43 @@ class Jugador{
         vida = vid;
     }
     /**
-     * Este metodo imprime el mensaje de victoria
+     * Este metodo imprime el mensaje que el jugador tiene al ganar
      */
     public void gana(){
-        System.out.println("\n He ganado, vamoooos por la victoria\n");
+        System.out.println("\nEl mundo esta salvado\n");
     }
-    /**
-     * Este metodo imprime el mensaje de game over
-     */
     public void pierde(){
-        System.out.println("\n NOOOOO, estoy muriendo\n---***GameOver***---");
+        System.out.println("\nGAME OVER...\n");
     }
+
     /**
      * Este metodo imprime todo el inventario del usuario
      */
-    public void inventario(){
+    public boolean inventario(){
+        boolean x;
         if (itemsOHabls.size()>0){
             for (int i = 0; i< itemsOHabls.size(); i++ ){
                 System.out.println("\n"+i + " "+ itemsOHabls.get(i).getNombre());
             }
+            x=true;
         }else{
             System.out.println("\n No tienes ni items ni habilidades\n");
+            x=false;
         }
+        return x;
     }
     /**
      * Este metodo setea la vida
      * @param vid
      */
-    public void setVidas(int vid){
+    public void setVidas(Double vid){
         vida = Math.round(vid);
     }
     /**
      * Este metodo setea el daño basico del jugador
      * @param damg
      */
-    public void setDama(int damg){
+    public void setDama(Double damg){
         damageBas = damg;
     }
     /**
