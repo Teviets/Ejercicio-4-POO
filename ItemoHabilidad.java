@@ -30,13 +30,6 @@ class ItemoHabilidad{
         damage = damag;
     }
     /**
-     * Este metodo utiliza una probabilidad para establecer la cantidad de daño
-     * @param probabilidad
-     */
-    public void setProbabilidadDamage(Double probabilidad){
-        damage = Math.round(damage *probabilidad); 
-    }
-    /**
      * Este metodo establece la cantidad de rondas restantes que esta activo el item o habilidad
      * @param rnd
      */
